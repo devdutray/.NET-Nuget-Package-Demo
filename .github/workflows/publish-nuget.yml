@@ -89,7 +89,7 @@ jobs:
         run: |
           dotnet nuget push "./nupkg/*.nupkg" \
              --api-key ${{ secrets.GITHUB_TOKEN }} \
-             --source github \
+             --source git \
              --skip-duplicate
 
       # 4. Create a GitHub Release
