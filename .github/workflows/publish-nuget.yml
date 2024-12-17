@@ -47,6 +47,7 @@ jobs:
 
       # 5. Build
       - name: Build Project
+        working-directory: ./Dotnet-Package
         run: dotnet build --configuration Release --no-restore
           echo "Build succesful"
         
