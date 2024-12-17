@@ -82,11 +82,7 @@ jobs:
 
       # 2. Add NuGet source for GitHub Registry
       - name: Configure GitHub NuGet Source
-        run: dotnet nuget add source https://nuget.pkg.github.com/devdutray/index.json \
-             --name git \
-             --username ${{ github.actor }} \
-             --password ${{ secrets.GITHUB_TOKEN }} \
-             --store-password-in-clear-text
+        run: dotnet nuget add source "https://nuget.pkg.github.com/devdutray/index.json" --name "git" --username "${{ github.actor }}" --password "${{ secrets.GITHUB_TOKEN }}" --store-password-in-clear-text
 
       # 3. Push to GitHub Packages
       - name: Push Package to GitHub Packages
