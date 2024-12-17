@@ -88,7 +88,7 @@ jobs:
       - name: Push Package to GitHub Packages
         run: |
           dotnet nuget push "./nupkg/*.nupkg" \
-             --api-key ${{ secrets.GITHUB_TOKEN }} \
+             --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }} \
              --source https://nuget.pkg.github.com/devdutray/index.json \
              --skip-duplicate
 
