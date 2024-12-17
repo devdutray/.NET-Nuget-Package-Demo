@@ -49,7 +49,6 @@ jobs:
       - name: Build Project
         working-directory: ./Dotnet-Package
         run: dotnet build --configuration Release --no-restore
-          echo "Build succesful"
         
       # 6. Pack the .csproj file
       - name: Pack NuGet Package
