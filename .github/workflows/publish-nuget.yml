@@ -39,8 +39,13 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # 4. Dynamically find and pack the .csproj file
-      - name: Build and Pack NuGet Package
+      # 4. Build
+      - name: Build Project
+        run: dotnet build
+        echo "Build succesful"
+        
+      # 5. Dynamically find and pack the .csproj file
+      - name: Pack NuGet Package
         run: |
           PROJECT_FILE=$(find . -name "*.csproj" | head -n 1) # Finds the first .csproj file
           echo "Found Project File: $PROJECT_FILE"
@@ -49,7 +54,7 @@ jobs:
             -c Release \
             --output ./nupkg
 
-      # 5. Upload NuGet package as an artifact
+      # 6. Upload NuGet package as an artifact
       - name: Upload NuGet Package
         uses: actions/upload-artifact@v4
         with:
