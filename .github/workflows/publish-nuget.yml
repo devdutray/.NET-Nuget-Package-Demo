@@ -56,7 +56,7 @@ jobs:
           PROJECT_FILE=$(find . -name "*.csproj" | head -n 1) # Finds the first .csproj file
           echo "Found Project File: $PROJECT_FILE"
           dotnet pack "./Dotnet-Package/Dotnet-Package.csproj" \
-            -p:Version='alpha ${{ steps.gitversion.outputs.SemVer }}' \
+            -p:Version='${{ steps.gitversion.outputs.SemVer }}' \
             -c Release \
             --output ./nupkg
 
