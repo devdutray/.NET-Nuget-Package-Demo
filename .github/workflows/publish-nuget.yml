@@ -3,9 +3,7 @@ name: Build and Publish NuGet Package
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [ main ]   # Run on pull requests to 'main' branch
-
+  
 jobs:
   build:
     name: Build the application
