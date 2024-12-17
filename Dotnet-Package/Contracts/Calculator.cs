@@ -2,7 +2,7 @@
 
 namespace calculator_nuget_demo
 {
-    public class Calculatorrr : ICalculator
+    public class Calculator : ICalculator
     {
         public int Add(int a, int b)
         {
