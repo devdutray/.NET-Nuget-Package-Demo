@@ -42,7 +42,7 @@ jobs:
       # 4. Build
       - name: Build Project
         run: dotnet build
-        echo "Build succesful"
+          echo "Build succesful"
         
       # 5. Dynamically find and pack the .csproj file
       - name: Pack NuGet Package
