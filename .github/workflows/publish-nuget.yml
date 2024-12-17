@@ -42,7 +42,8 @@ jobs:
 
       # 4: Restore project dependencies
       - name: Restore dependencies
-        run: dotnet restore
+        working-directory: ./Dotnet-Package
+        run: dotnet restore 
 
       # 5. Build
       - name: Build Project
