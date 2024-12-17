@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    name: Build the application
     runs-on: ubuntu-latest
     outputs:
       Version: ${{ steps.gitversion.outputs.SemVer }}
@@ -39,12 +40,16 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # 4. Build
+      # 4: Restore project dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # 5. Build
       - name: Build Project
-        run: dotnet build
+        run: dotnet build --configuration Release --no-restore
           echo "Build succesful"
         
-      # 5. Dynamically find and pack the .csproj file
+      # 6. Pack the .csproj file
       - name: Pack NuGet Package
         run: |
           PROJECT_FILE=$(find . -name "*.csproj" | head -n 1) # Finds the first .csproj file
@@ -54,7 +59,7 @@ jobs:
             -c Release \
             --output ./nupkg
 
-      # 6. Upload NuGet package as an artifact
+      # 7. Upload NuGet package as an artifact
       - name: Upload NuGet Package
         uses: actions/upload-artifact@v4
         with:
